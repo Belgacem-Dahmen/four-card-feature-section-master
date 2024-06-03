@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* Primary Colors */
+    --color-red: hsl(0, 78%, 62%);
+    --color-cyan: hsl(180, 62%, 55%);
+    --color-orange: hsl(34, 97%, 64%);
+    --color-blue: hsl(212, 86%, 64%);
+
+    /* Neutral Colors */
+    --color-very-dark-blue: hsl(234, 12%, 34%);
+    --color-grayish-blue: hsl(229, 6%, 66%);
+    --color-very-light-gray: hsl(0, 0%, 98%);
+
+    /* Typography */
+    --font-family: 'Poppins', sans-serif;
+    --font-weight-light: 200;
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+    --font-size-body: 15px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    background-color: var(--color-very-light-gray);
+
+}
+
+p {
+    color: var(--color-grayish-blue);
+    font-size: var(--font-size-body);
+}
+
+h2 {
+    color: var(--color-very-dark-blue);
+}
+
+.container {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+}
+
+.details {
+    margin: auto;
+    text-align: center;
+}
+
+.title-text {
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-light);
+}
+
+.subtitle-text {
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-very-dark-blue);
+    margin-bottom: 20px;
+}
+
+.description {
+    padding: 0 10px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    padding: 20px 30px;
+    border-radius: 5px;
+    border-top: 3px solid gray;
+    background: white;
+    box-shadow: 0px 5px 15px 0px var(--color-grayish-blue);
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.card[data-border-color="green"] {
+    border-color: var(--color-cyan);
+}
+
+
+.card[data-border-color="red"] {
+    border-color: var(--color-red);
+}
+
+.card[data-border-color="yellow"] {
+    border-color: var(--color-orange);
+}
+
+.card[data-border-color="blue"] {
+    border-color: var(--color-blue);
+}
+
+.card img {
+    display: flex;
+    align-self: flex-end;
+
+}
+
+/* for Tablet */
+@media screen and (min-width:520px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* media queries for desktop and bigger screen */
+
+/* first way to do this using grid  */
+@media screen and (min-width:820px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards {
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .card {
+        max-width: 350px;
+    }
+
+    .card[data-border-color="green"] {
+        grid-row: span 2;
+    }
+
+    .card[data-border-color="yellow"] {
+        grid-row: span 2;
+    }
+}
